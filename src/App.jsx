@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/login'; // Assuming your login page component is named LoginPage
+import React from 'react';
 import Signup from './pages/signup'; // Assuming your signup page component is named Signup
 import Dashboard from './pages/dashboard'; // Assuming your main dashboard page component is named Dashboard
 // You might still want Navbar and Sidebar, but they could be within the Dashboard or a layout component

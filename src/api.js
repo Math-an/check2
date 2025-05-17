@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'http://localhost:9000',
+  // Change baseURL to '/api' to use the Vite proxy
 });
 
 const handleRequest = async (request) => {
@@ -18,13 +19,15 @@ export const getChildren = () => handleRequest(() => api.get('/children'));
 export const getEvents = () => handleRequest(() => api.get('/events'));
 export const getMessages = () => handleRequest(() => api.get('/messages'));
 export const getPhotos = () => handleRequest(() => api.get('/photos'));
+export const getUser = (id) => handleRequest(() => api.get(`/users/${id}`));
 export const getUsers = () => handleRequest(() => api.get('/users'));
 
 export const createChild = (childData) => handleRequest(() => api.post('/children', childData));
 export const createEvent = (eventData) => handleRequest(() => api.post('/events', eventData));
 export const createMessage = (messageData) => handleRequest(() => api.post('/messages', messageData));
 export const createPhoto = (photoData) => handleRequest(() => api.post('/photos', photoData));
-export const createUser = (userData) => handleRequest(() => api.post('/users', userData));
+// Update createUser to use the correct endpoint '/users/register'
+export const createUser = (userData) => handleRequest(() => api.post('/users/register', userData));
 
 export const updateChild = (id, childData) => handleRequest(() => api.put(`/children/${id}`, childData));
 export const updateEvent = (id, eventData) => handleRequest(() => api.put(`/events/${id}`, eventData));
@@ -37,3 +40,5 @@ export const deleteEvent = (id) => handleRequest(() => api.delete(`/events/${id}
 export const deleteMessage = (id) => handleRequest(() => api.delete(`/messages/${id}`));
 export const deletePhoto = (id) => handleRequest(() => api.delete(`/photos/${id}`));
 export const deleteUser = (id) => handleRequest(() => api.delete(`/users/${id}`));
+
+export default api;

@@ -2,38 +2,10 @@ import React, { useState } from 'react';
 // Assume Material UI components are imported like this:
 import api from '../api'; // Import the API client
 
-// import { TextField, Button, RadioGroup, FormControlLabel, Radio, Typography, Container, Box } from '@mui/material';
+import { TextField, Button, RadioGroup, FormControlLabel, Radio, Typography, Container, Box } from '@mui/material';
 // import { Link } from 'react-router-dom'; // Assuming react-router-dom for navigation
 
-// Placeholder components if Material UI is not actually installed (These will be replaced by actual Material UI components)
-const TextField = ({ label, type, value, onChange, fullWidth, margin }) => (
-  <div>
-    <label>{label}</label>
-    <input type={type} value={value} onChange={onChange} style={{ width: fullWidth ? '100%' : 'auto', margin }} />
-  </div>
-);
-const Button = ({ children, variant, color, onClick, fullWidth, className }) => (
-  <button onClick={onClick} className={className} style={{ width: fullWidth ? '100%' : 'auto' }}>
-    {children}
-  </button>
-);
-const RadioGroup = ({ value, onChange, children }) => (
-  <div onChange={onChange} value={value}>
-    {children}
-  </div>
-);
-const FormControlLabel = ({ control, label, value }) => (
-  <label>
-    {control}
-    {label}
-  </label>
-);
-const Radio = ({ value, checked, onChange }) => (
-  <input type="radio" value={value} checked={checked} onChange={onChange} />
-);
-const Typography = ({ variant, children, className }) => <div className={className}>{children}</div>;
-const Container = ({ children, maxWidth }) => <div style={{ maxWidth: maxWidth === 'sm' ? '600px' : 'auto', margin: '0 auto' }}>{children}</div>;
-// const Box = ({ children, sx }) => <div style={sx}>{children}</div>; // Use actual Box from @mui/material
+// Placeholder components if Material UI is not actually installed (These were replaced by actual Material UI components)
 const Link = ({ to, children }) => <a href={to}>{children}</a>; // Simple anchor tag for demonstration
 
 const Signup = () => {
@@ -44,7 +16,7 @@ const Signup = () => {
 
   const handleSignup = (event) => {
     event.preventDefault();
-    api.post('/users/signup', { email, password, userType })
+    api.post('/api/users/register', { email, password, userType })
       .then(response => {
         console.log('Signup successful:', response.data);
         // Handle successful signup (e.g., redirect to login)
